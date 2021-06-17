@@ -1,11 +1,11 @@
 import React from 'react';
-import cloudImg from './mario-cloud.png'
+import CloudImg from './mario-cloud.png'
 import styles from './Cloud.module.css'
 
-const Cloud = () => {
+const Cloud = ({position}) => {
     return ( 
-        <div className={styles.cloudContainer}>
-            <img src={cloudImg} alt="cloud" className={styles.cloudImage}/>
+        <div className={styles.cloudContainer} style={{left: position.x, top: position.y}}> 
+            <img src={CloudImg} alt="cloud" className={styles.cloudImage}/>
         </div>
      );
 }

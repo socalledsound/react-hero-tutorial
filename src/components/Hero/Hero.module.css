@@ -1,0 +1,9 @@
+.heroContainer {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+}
+
+.heroImage {
+  width: 100%;
+}
