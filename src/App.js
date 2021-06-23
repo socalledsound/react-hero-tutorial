@@ -3,6 +3,7 @@ import Cloud from './components/Cloud/Cloud'
 import Hero from './components/Hero/Hero'
 import Goal from './components/Goal/Goal'
 import DataDisplay from './components/DataDisplay/DataDisplay'
+import HeroControls from './components/HeroControls/HeroControls'
 import styles from './App.module.css'
 class App extends Component {
     state = { 
@@ -23,6 +24,20 @@ class App extends Component {
 
      componentDidMount(){
          this.updateCloudPosition();
+     }
+
+     updateHero = (moveValue) => {
+         
+        const { heroPosition, goalPosition } = this.state;
+        
+        const newHeroPosition = {
+            x: heroPosition.x + moveValue.x,
+            y: heroPosition.y + moveValue.y,
+        }
+
+        const updatedAchievedGoal = newHeroPosition.y > goalPosition.y - 200 ? true : false
+        
+         this.setState({heroPosition: newHeroPosition, achievedGoal: updatedAchievedGoal})
      }
 
 
@@ -50,10 +65,11 @@ class App extends Component {
             <div className={styles.mainWrapper}>
                 <div className={styles.wrapperLeft}>
                     <DataDisplay data={data}/>
+                    <HeroControls updateParent={this.updateHero}/>
                 </div>
                 <div className={styles.wrapperRight}>
                     <Cloud position={cloudPosition}/>
-                    <Hero position={heroPosition}/> 
+                    <Hero position={heroPosition} achievedGoal={achievedGoal}/> 
                     <Goal position={goalPosition}/>
                 </div>
             </div>
