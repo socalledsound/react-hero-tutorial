@@ -1,0 +1,13 @@
+.goal {
+  background-color: rgb(224, 157, 224);
+  border: 3px dashed purple;
+  width: 200px;
+  height: 50px;
+  position: absolute;
+  color: purple;
+  text-align: center;
+  padding: 0.6rem;
+  padding-top: 1.2rem;
+  vertical-align: middle;
+  line-height: 1.2rem;
+}
